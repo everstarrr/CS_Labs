@@ -1,4 +1,6 @@
-﻿Console.Write("Enter array size: ");
+﻿using Lab1;
+
+Console.Write("Enter array size: ");
 int n = Convert.ToInt32(Console.ReadLine()); // размер массива
 int[] arr = new int[n]; // массив
 Random rnd = new Random();
@@ -69,3 +71,6 @@ for (int i = 0; i < n; i++)
 {
     Console.Write(arr[i] + " ");
 }
+Console.WriteLine('\n');
+
+Program2.Rofls();
