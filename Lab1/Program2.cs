@@ -4,12 +4,20 @@ public class Program2
 {
     public static void Rofls()
     {
-        Console.Write("Enter x array size: ");
-        int x = Convert.ToInt32(Console.ReadLine()); // размер массива x
-        Console.Write("Enter y array size: ");
-        int y = Convert.ToInt32(Console.ReadLine()); // размер массива y
-        int[,] arr = new int[y, x]; // двумерный массив
-        Random rnd = new Random();
+        var isIntx = int.TryParse(Console.ReadLine(), out int x); // размер массива
+        if (!isIntx || x <= 0)
+        {
+            throw new Exception("Недействительное значение размера массива.");
+        }
+
+        var isInty = int.TryParse(Console.ReadLine(), out int y); // размер массива
+        if (!isInty || y <= 0)
+        {
+            throw new Exception("Недействительное значение размера массива.");
+        }
+
+        var arr = new int[y, x]; // двумерный массив
+        var rnd = new Random();
         int val = 0; // вспомогательная переменная
         int col = 0;
 
@@ -52,11 +60,12 @@ public class Program2
                     col = j;
                 }
             }
+
             for (int k = 0; k < y; k++)
             {
                 if (arr[k, col] > val)
                     break;
-                if (k==y-1)
+                if (k == y - 1)
                     Console.WriteLine("Saddle point: {0}, {1}", k, col);
             }
         }

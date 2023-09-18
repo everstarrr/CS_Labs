@@ -1,9 +1,14 @@
 ﻿using Lab1;
 
 Console.Write("Enter array size: ");
-int n = Convert.ToInt32(Console.ReadLine()); // размер массива
-int[] arr = new int[n]; // массив
-Random rnd = new Random();
+var isInt = int.TryParse(Console.ReadLine(), out int n); // размер массива
+if (!isInt || n <= 0)
+{
+    throw new Exception("Недействительное значение размера массива.");
+}
+
+var arr = new int[n]; // массив
+var rnd = new Random();
 int val = arr[0]; // вспомогательная переменная
 int pos1 = 0;
 int pos2 = 0;
@@ -14,6 +19,7 @@ for (int i = 0; i < n; i++)
     arr[i] = rnd.Next(-256, 256);
     Console.Write(arr[i] + " ");
 }
+
 Console.WriteLine();
 
 // поиск и вывод минимального значения
@@ -22,6 +28,7 @@ foreach (int i in arr)
     if (i < val)
         val = i;
 }
+
 Console.WriteLine("Minimal value: " + val);
 
 // поиск позиции 1
@@ -46,12 +53,13 @@ for (int i = n - 1; i > pos1; i--)
 }
 
 // вычисление и вывод суммы
-pos1+=2;
+pos1 += 2;
 val = 0;
 for (int i = pos1; i < pos2; i++)
 {
     val += arr[i];
 }
+
 Console.WriteLine("Array sum: " + val);
 
 // изменение массива
@@ -71,6 +79,7 @@ for (int i = 0; i < n; i++)
 {
     Console.Write(arr[i] + " ");
 }
+
 Console.WriteLine('\n');
 
 Program2.Rofls();
