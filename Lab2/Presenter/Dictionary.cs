@@ -3,18 +3,10 @@ namespace Lab2.Presenter;
 public class Dict
 {
     // словарь слов, конструкций и корней
-    protected Dictionary<string, string[]> Words = new()
-    {
-        { "новостной", new []{"новост-н-ой", "новост"} },
-        { "новости", new []{"новост-и", "новост"} }
-    };
+    protected Dictionary<string, string[]> Words = new();
 
     // словарь слов и количеств элементов
-    protected Dictionary<string, int> Elements = new()
-    {
-        { "новостной", 3 },
-        { "новости", 2 }
-    };
+    protected Dictionary<string, int> Elements = new();
 
     // добавить слово в словарь
     public void AddWord(string word, string construct, string core)
@@ -30,5 +22,6 @@ public class Dict
         Elements = Elements.OrderBy(x => x.Value).ToDictionary(x
             => x.Key, x => x.Value);
     }
+    
     
 }

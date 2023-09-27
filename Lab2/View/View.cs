@@ -4,53 +4,63 @@ namespace Lab2.View;
 
 public class View : Dict
 {
-    
     // ввод слова
+
     public string GetWord()
     {
-        string word = "";
-        char c = 'n';
-        while (c == 'n')
-        {
-            Console.Write("> ");
-            word = Console.ReadLine() ?? throw new NullReferenceException("Пустая строка недопустима.");
-
-            if (word == "q") // выход из программы
-                return word;
-            
-            if (!Words.ContainsKey(word)) // если слова нет в словаре
-            {
-                Console.WriteLine("Неизвестное слово. Хотите добавить его в словарь (y/n)? ");
-                char s = Convert.ToChar(Console.ReadLine() ?? "");
-                if (char.ToLower(s)!='n' && char.ToLower(s)!='y')
-                    throw new Exception("Ввод иных значений недопустим.");
-                c = s;
-            }
-            else // если слово есть в словаре
-            {
-                foreach (var str in Elements)
-                {
-                    if (str.Key.Contains(Words[word][1]))
-                        Console.WriteLine(Words[str.Key][0]);
-                }
-            }
-            
-        }
-        return word;
+        Console.Write("> ");
+        return Console.ReadLine() ?? throw new NullReferenceException("Пустая строка недопустима.");
     }
 
-    // возвращает конструкцию слова
-    public void SetConstruct(string word)
+    // проверка правильности ввода конструкции
+    public bool CheckWord(string word, string construct)
     {
-        string core=""; // корень слова
+        while (construct.IndexOf('-') != -1)
+            construct = construct.Replace("-", "");
+
+        if (construct == word)
+            return true;
+        return false;
+    }
+
+    // проверка наличия слова в словаре
+    public char CheckWordInDictionary(string word)
+    {
+        char c;
+        if (!Words.ContainsKey(word)) // если слова нет в словаре
+        {
+            Console.WriteLine("Неизвестное слово. Хотите добавить его в словарь (y/n)? ");
+            char s = Convert.ToChar(Console.ReadLine() ?? "");
+            if (char.ToLower(s) != 'n' && char.ToLower(s) != 'y')
+                throw new Exception("Ввод иных значений недопустим.");
+            c = s;
+        }
+        else // если слово есть в словаре
+        {
+            foreach (var str in Elements)
+            {
+                if (str.Key.Contains(Words[word][1]))
+                    Console.WriteLine(Words[str.Key][0]);
+            }
+
+            return 'n';
+        }
+
+        return c;
+    }
+
+    // получение конструкции слова
+    public void GetConstruct(string word)
+    {
+        string core = ""; // корень слова
         int amount = 0; // количество элементов в слове
-        string construct=""; // конструкция слова
+        string construct = ""; // конструкция слова
         bool checker = false; // чекер правильности ввода конструкции
         while (!checker)
         {
             construct = "";
             string str; // дополнительная переменная
-            
+
             // добавление приставки
             Console.Write("приставка: ");
             str = Console.ReadLine() ?? "";
@@ -74,7 +84,7 @@ public class View : Dict
                 Console.WriteLine("У слова не может не быть корня.");
                 continue;
             }
-            
+
             // добавление суффикса или окончания
             while (true)
             {
@@ -86,28 +96,26 @@ public class View : Dict
                 construct += "-" + str;
             }
 
-            // удаление '-' из конструкции
-            str = construct;
-            while (str.IndexOf('-') != -1)
-                str = construct.Replace("-", "");
-
-            if (str == word)
-                checker = true;
-            else
+            // проверка правильности ввода
+            checker = CheckWord(word, construct);
+            if (!checker)
                 Console.WriteLine("Конструкция введена неправильно.");
         }
+
         AddElement(word, amount); // добавление значений в elements
         AddWord(word, construct, core); // добавление слова и корня в Words
     }
-    
+
     // старт
     public void Start()
     {
-        string word = "";
-        while (word!="q")
+        while (true)
         {
-            word = GetWord();
-            SetConstruct(word);
+            string word = GetWord();
+            if (word == "q")
+                break;
+            if (CheckWordInDictionary(word) == 'y')
+                GetConstruct(word);
         }
     }
 }
