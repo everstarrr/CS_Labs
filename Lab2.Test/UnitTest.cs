@@ -1,35 +1,35 @@
+using System.Runtime.InteropServices;
+using Lab2.Model;
+
 namespace Lab2.Test;
-using View;
 
 public class UnitTest
 {
     [Theory]
-    [InlineData("братанчик", "брат-ан-чик")]
-    public void CheckWord_ShouldBeTrue(string word, string construct)
+    [InlineData("братан", "брат-ан", "брат")]
+    [InlineData("человек", "чел-о-век", "чел")]
+    public void FindRelatedWords_ShouldReturnExpected(string word, string construction, string root)
     {
-        var v = new View();
-        var checker = v.CheckWord(word, construct);
-        Assert.True(checker);
+        DictionaryDatabase db = new DictionaryDatabase();
+        db.AddWord(word, construction, root);
+        string result = db.FindRelatedWords(word)[0];
+
+        Assert.Equal(construction, result);
+    }
+
+    [Fact]
+    public void SaveAndLoadDictionary_ShouldBeSame()
+    {
+        DictionaryDatabase db = new DictionaryDatabase();
+        db.AddWord("кувалда", "кувалд-а", "кувалд");
+        db.AddWord("приход", "при-ход", "ход");
+        db.AddWord("павапепа", "павапепа", "павапепа");
+        DictionaryDatabase dbtest = db;
+        dbtest.SaveDictionary();
+        dbtest.LoadDictionary();
+        
+        Assert.Equal(db, dbtest);
     }
     
-    [Theory]
-    [InlineData("братанчик", "братан")]
-    public void CheckWord_ShouldBeFalse(string word, string construct)
-    {
-        var v = new View();
-        var checker = v.CheckWord(word, construct);
-        Assert.False(checker);
-    }
-
-    [Theory]
-    [InlineData("джавист", "джав-ист", "джав", 2)]
-    public void PrintWordsInDictionary(string word, string construct, string core, int amount)
-    {
-        var v = new View();
-        v.AddWord(word,construct,core);
-        v.AddElement(word,amount);
-
-
-        Assert.Equal('n', v.CheckWordInDictionary(word));
-    }
+    
 }

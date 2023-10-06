@@ -1,4 +1,5 @@
-﻿using Lab1;
+﻿using System.Text.Json;
+using Lab1;
 
 Console.Write("Enter array size: ");
 var isInt = int.TryParse(Console.ReadLine(), out int n); // размер массива
