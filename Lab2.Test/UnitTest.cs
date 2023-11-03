@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using Lab2.Model;
 
 namespace Lab2.Test;

@@ -1,14 +1,19 @@
 ﻿using Lab4.Model;
 using Lab4.Controller;
+using Lab4.Model.Database;
 
 namespace Lab4;
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
-        DictionaryDatabase dictionaryDatabase = new DictionaryDatabase();
-        IDictionary dictionary = dictionaryDatabase;
-        ApplicationController appController = new ApplicationController(dictionary);
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "dictionary.db");
+        WordDictionary dictionaryDatabase = new WordDictionary();
+        IWordDictionary wordDictionary = dictionaryDatabase;
+        DatabaseConnection database = new DatabaseConnection(dictionaryDatabase, path);
+        dictionaryDatabase.Dictionary.AddRange(database.LoadDictionary());
+        ApplicationController appController = new ApplicationController(wordDictionary);
         appController.Run();
+        database.SaveDictionary();
     }
 }

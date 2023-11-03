@@ -1,9 +1,8 @@
 namespace Lab4.Model;
 
 // Интерфейс словаря
-public interface IDictionary
+public interface IWordDictionary
 {
     void AddWord(string word, string construction, string root);
     List<string> FindRelatedWords(string word);
-    void SaveDictionary();
 }

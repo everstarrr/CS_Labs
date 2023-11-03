@@ -4,11 +4,10 @@ namespace Lab4.Controller;
 //контроллер приложения
 public class ApplicationController
 {
-    private readonly IDictionary _dictionary; // словарь, реализующий интерфейс IDictionary
-
-    public ApplicationController(IDictionary dictionary) // конструктор
+    private readonly IWordDictionary _wordDictionary; // словарь, реализующий интерфейс IDictionary
+    public ApplicationController(IWordDictionary wordDictionary) // конструктор
     {
-        _dictionary = dictionary;
+        _wordDictionary = wordDictionary;
     }
 
     public void Run() // запуск контроллера
@@ -24,7 +23,7 @@ public class ApplicationController
             if (input.ToLower() == "q")
                 break;
 
-            List<string> relatedWords = _dictionary.FindRelatedWords(input);
+            List<string> relatedWords = _wordDictionary.FindRelatedWords(input);
             if (relatedWords.Count > 0)
             {
                 Console.WriteLine("Однокоренные слова:");
@@ -66,7 +65,7 @@ public class ApplicationController
 
                         if (input == construction.Replace("-", ""))
                         {
-                            _dictionary.AddWord(input, construction, root);
+                            _wordDictionary.AddWord(input, construction, root);
                             Console.WriteLine($"Слово {construction} добавлено");
                             break;
                         }
@@ -78,7 +77,5 @@ public class ApplicationController
                     throw new Exception("Введён неизвестный символ.");
             }
         }
-
-        _dictionary.SaveDictionary();
     }
 }
