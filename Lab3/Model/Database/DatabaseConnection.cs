@@ -1,6 +1,6 @@
 using System.Data.SQLite;
 
-namespace Lab4.Model.Database;
+namespace Lab3.Model.Database;
 
 public class DatabaseConnection : IDatabaseConnection
 {

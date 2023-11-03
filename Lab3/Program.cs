@@ -1,8 +1,8 @@
-﻿using Lab4.Model;
-using Lab4.Controller;
-using Lab4.Model.Database;
+﻿using Lab3.Model;
+using Lab3.Controller;
+using Lab3.Model.Database;
 
-namespace Lab4;
+namespace Lab3;
 public static class Program
 {
     public static void Main(string[] args)

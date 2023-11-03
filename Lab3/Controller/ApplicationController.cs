@@ -1,5 +1,5 @@
-using Lab4.Model;
-namespace Lab4.Controller;
+using Lab3.Model;
+namespace Lab3.Controller;
 
 //контроллер приложения
 public class ApplicationController

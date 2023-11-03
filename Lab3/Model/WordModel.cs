@@ -1,4 +1,4 @@
-namespace Lab4.Model;
+namespace Lab3.Model;
 
 // Модель данных для слова
 public class WordModel

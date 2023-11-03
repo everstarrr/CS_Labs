@@ -1,4 +1,4 @@
-namespace Lab4.Model.Database;
+namespace Lab3.Model.Database;
 
 public interface IDatabaseConnection
 {

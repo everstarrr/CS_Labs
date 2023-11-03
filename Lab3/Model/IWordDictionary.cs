@@ -1,4 +1,4 @@
-namespace Lab4.Model;
+namespace Lab3.Model;
 
 // Интерфейс словаря
 public interface IWordDictionary

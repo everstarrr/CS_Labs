@@ -1,8 +1,8 @@
 using Moq;
-using Lab4.Model.Database;
-using Lab4.Model;
+using Lab3.Model.Database;
+using Lab3.Model;
 
-namespace Lab4.Test;
+namespace Lab3.Test;
 
 public class UnitTest1
 {
