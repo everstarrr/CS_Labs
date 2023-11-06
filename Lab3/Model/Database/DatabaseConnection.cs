@@ -4,14 +4,12 @@ namespace Lab3.Model.Database;
 
 public class DatabaseConnection : IDatabaseConnection
 {
-    private readonly List<WordModel> _dictionary;
     private readonly string _dictionaryFilePath;
     private readonly string _tableName = "DictionaryTable"; // имя таблицы
 
 
-    public DatabaseConnection(WordDictionary dictionary, string path)
+    public DatabaseConnection(string path)
     {
-        _dictionary = dictionary.Dictionary;
         _dictionaryFilePath = path;
         if (!File.Exists(_dictionaryFilePath))
         {
@@ -27,7 +25,7 @@ public class DatabaseConnection : IDatabaseConnection
     }
 
 
-    public void SaveDictionary()
+    public void SaveDictionary(WordDictionary dictionary)
     {
         using var connection = new SQLiteConnection($"Data Source={_dictionaryFilePath};Version=3;");
         connection.Open();
@@ -37,7 +35,7 @@ public class DatabaseConnection : IDatabaseConnection
             command.ExecuteNonQuery();
         }
 
-        foreach (var word in _dictionary) // добавление слов из словаря в бд
+        foreach (var word in dictionary.Dictionary) // добавление слов из словаря в бд
         {
             using var command =
                 new SQLiteCommand(

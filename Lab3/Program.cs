@@ -8,12 +8,10 @@ public static class Program
     public static void Main(string[] args)
     {
         string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "dictionary.db");
-        WordDictionary dictionaryDatabase = new WordDictionary();
-        IWordDictionary wordDictionary = dictionaryDatabase;
-        DatabaseConnection database = new DatabaseConnection(dictionaryDatabase, path);
-        dictionaryDatabase.Dictionary.AddRange(database.LoadDictionary());
-        ApplicationController appController = new ApplicationController(wordDictionary);
+        DatabaseConnection database = new DatabaseConnection(path);
+        WordDictionary dictionaryDatabase = new WordDictionary(database);
+        ApplicationController appController = new ApplicationController(dictionaryDatabase);
         appController.Run();
-        database.SaveDictionary();
+        database.SaveDictionary(dictionaryDatabase);
     }
 }

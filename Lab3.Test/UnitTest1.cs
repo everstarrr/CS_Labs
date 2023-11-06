@@ -9,10 +9,9 @@ public class UnitTest1
     [Fact]
     public void AddWord_ShouldWork()
     {
-        WordDictionary dict = new WordDictionary();
         var mock = new Mock<IDatabaseConnection>();
-        
-        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>(dict.Dictionary));
+        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>());
+        WordDictionary dict = new WordDictionary(mock.Object);
         dict.AddWord("челик","чел-ик","чел");
         dict.AddWord("человек","чел-о-век","чел");
         
@@ -23,9 +22,9 @@ public class UnitTest1
     [Fact]
     public void FindRelatedWords_ReturnsRelatedWords()
     {
-        WordDictionary dict = new WordDictionary();
         var mock = new Mock<IDatabaseConnection>();
-        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>(dict.Dictionary));
+        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>());
+        WordDictionary dict = new WordDictionary(mock.Object);
         
         dict.AddWord("челик","чел-ик","чел");
         dict.AddWord("человек","чел-о-век","чел");

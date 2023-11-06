@@ -2,7 +2,6 @@
 	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9e9df385_002Ddf87_002D4543_002D8f27_002D27af05e3b0ae/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddWord_ShouldWork" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.UnitTest1.AddWord_ShouldWork&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.UnitTest1.FindRelatedWords_ReturnsRelatedWords&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.UnitTest1&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
