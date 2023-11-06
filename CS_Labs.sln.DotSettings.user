@@ -1,10 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3d7200a6_002Ddda9_002D4205_002Db522_002D4a7a767ed618/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CheckQuit" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9e9df385_002Ddf87_002D4543_002D8f27_002D27af05e3b0ae/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddWord_ShouldWork" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::555C7DF1-8003-41F7-BE0D-98DD2F948C7F::net7.0::Lab2.Test.UnitTest.FindRelatedWords_ShouldReturnExpected&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::555C7DF1-8003-41F7-BE0D-98DD2F948C7F::net7.0::Lab2.Test.UnitTest.SaveAndLoadDictionary_ShouldBeSame&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab4.Test.UnitTest1.FindRelatedWords_ReturnsRelatedWords&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab4.Test.UnitTest1.AddWord_AddsWordToDictionary&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab4.Test.UnitTest1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.UnitTest1.AddWord_ShouldWork&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.UnitTest1.FindRelatedWords_ReturnsRelatedWords&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

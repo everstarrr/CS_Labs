@@ -7,23 +7,33 @@ namespace Lab3.Test;
 public class UnitTest1
 {
     [Fact]
-    public void LoadDictionary_ShouldWork()
+    public void AddWord_ShouldWork()
     {
-        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "testDictionary.db");
         WordDictionary dict = new WordDictionary();
         var mock = new Mock<IDatabaseConnection>();
+        
+        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>(dict.Dictionary));
         dict.AddWord("челик","чел-ик","чел");
         dict.AddWord("человек","чел-о-век","чел");
-        mock.Setup(r => r.LoadDictionary()).Returns(dict.Dictionary.GetRange(0,3));
-        IEnumerable<WordModel> actual = mock.Object.LoadDictionary();
-        WordModel expected = new WordModel("челик","чел-ик","чел");
         
-        Assert.Equal(actual, expected);
+        Assert.Equal("челик", dict.Dictionary[0].Word);
+        Assert.Equal("человек", dict.Dictionary[1].Word);
     }
 
     [Fact]
     public void FindRelatedWords_ReturnsRelatedWords()
     {
-       
+        WordDictionary dict = new WordDictionary();
+        var mock = new Mock<IDatabaseConnection>();
+        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>(dict.Dictionary));
+        
+        dict.AddWord("челик","чел-ик","чел");
+        dict.AddWord("человек","чел-о-век","чел");
+        List<string> actRelWords = dict.FindRelatedWords("человек");
+        List<string> expRelWords = new List<string>();
+        expRelWords.Add("чел-о-век");
+        expRelWords.Add("чел-ик");
+
+        Assert.Equal(expRelWords, actRelWords);
     }
 }
