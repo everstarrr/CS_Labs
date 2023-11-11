@@ -7,10 +7,8 @@ public class WordDictionary : IWordDictionary
 {
     public readonly List<WordModel> Dictionary = new (); // список слов и конструкций
 
-    public IDatabaseConnection database;
     public WordDictionary(IDatabaseConnection db)
     {
-        database = db;
         Dictionary.AddRange(db.LoadDictionary());
     }
     public void AddWord(string word, string construction, string root) // добавить слово в словарь

@@ -16,14 +16,14 @@ public class ApplicationController
         while (true)
         {
             Console.Write("Введите слово: ");
-            string input = Console.ReadLine() ?? "";
+            var input = Console.ReadLine() ?? "";
             if (input == "")
                 throw new Exception("Пустая строка недопустима.");
 
             if (input.ToLower() == "q")
                 break;
 
-            List<string> relatedWords = _wordDictionary.FindRelatedWords(input);
+            var relatedWords = _wordDictionary.FindRelatedWords(input);
             if (relatedWords.Count > 0)
             {
                 Console.WriteLine("Однокоренные слова:");
@@ -36,7 +36,7 @@ public class ApplicationController
             {
                 Console.WriteLine($"Слово '{input}' не найдено в словаре.");
                 Console.Write("Хотите добавить его в словарь? (y/n): ");
-                string choice = Console.ReadLine() ?? "";
+                var choice = Console.ReadLine() ?? "";
                 if (choice.ToLower() == "y")
                 {
                     while (true)
