@@ -23,6 +23,8 @@ public class WordDictionary : IWordDictionary
 
     public List<string> FindRelatedWords(string word) // возвращает список с частями слова
     {
+        if (word == "")
+            throw new Exception("Пустая строка недопустима.");
         List<string> relatedWords = new List<string>();
         string root = "";
         foreach (var wordModel in Dictionary)

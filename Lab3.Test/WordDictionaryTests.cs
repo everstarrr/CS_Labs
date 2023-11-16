@@ -40,4 +40,13 @@ public class WordDictionaryTests
         Assert.Equal(expRelWords, actRelWords);
     }
 
+    [Fact]
+    public void FindRelatedWords_ThrowsException()
+    {
+        var mock = new Mock<IDatabaseConnection>();                                                     
+        mock.Setup(r => r.LoadDictionary()).Returns(new List<WordModel>());                             
+        var dict = new WordDictionary(mock.Object);
+
+        Assert.Throws<Exception>(() => dict.FindRelatedWords(""));
+    }
 }

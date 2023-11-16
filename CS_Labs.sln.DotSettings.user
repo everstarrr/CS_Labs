@@ -4,5 +4,6 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.WordDictionaryTests.AddWord_ShouldWork&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.WordDictionaryTests.FindRelatedWords_ReturnsRelatedWords&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::380E7EB8-17FF-4BF7-B8C9-440F015F6EF3::net7.0::Lab3.Test.WordDictionaryTests.FindRelatedWords_ThrowsException&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

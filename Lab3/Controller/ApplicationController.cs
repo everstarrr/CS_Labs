@@ -17,9 +17,6 @@ public class ApplicationController
         {
             Console.Write("Введите слово: ");
             var input = Console.ReadLine() ?? "";
-            if (input == "")
-                throw new Exception("Пустая строка недопустима.");
-
             if (input.ToLower() == "q")
                 break;
 
